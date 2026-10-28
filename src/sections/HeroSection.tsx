@@ -3,7 +3,7 @@ import { Container } from '../components/ui/Container';
 import { Button } from '../components/ui/Button';
 import { SocialLinks } from '../components/ui/SocialLinks';
 import { profileData } from '../data/profile';
-import { ArrowRight, EyeIcon } from 'lucide-react';
+import { ArrowRight, EyeIcon, MapPin } from 'lucide-react';
 import { CvModal } from '../components/common/CvModal';
 
 export const HeroSection: React.FC = () => {
@@ -190,8 +190,17 @@ export const HeroSection: React.FC = () => {
                 }}
               >
                 <SocialLinks links={profileData.socials} />
-                <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
-                  📍 {profileData.location}
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.3rem',
+                    fontSize: '0.82rem',
+                    color: 'var(--text-secondary)',
+                  }}
+                >
+                  <MapPin size={14} style={{ color: 'var(--yellow-hover)', flexShrink: 0 }} />
+                  {profileData.location}
                 </span>
               </div>
             </div>

@@ -7,12 +7,22 @@ export const experiencesData: Experience[] = [
     company: "Universitas PGRI Semarang",
     period: "Jun 2025 - Jul 2026",
     location: "Semarang, Jawa Tengah, Indonesia",
+    image: "/images/profile/asistensi.jpg",
     description: [
-      "Bertindak sebagai asisten pengajar universitas (Teaching Assistant) secara purnawaktu.",
-      "Membimbing mahasiswa dalam pemahaman materi praktikum dan teori pada bidang Data Science dan Internet of Things (IoT).",
-      "Mendampingi evaluasi tugas, studi kasus pemrograman, dan bimbingan teknis proyek mahasiswa.",
+      "Membimbing mahasiswa dalam praktikum dan implementasi studi kasus terapan bidang Data Science serta Internet of Things (IoT).",
+      "Mendampingi evaluasi kode pemrograman, pemahaman algoritma, dan konsultasi teknis proyek akhir praktikum.",
     ],
     technologies: ["University Teaching", "Data Science", "Internet of Things (IoT)", "Python"],
+    certificates: [
+      {
+        title: "Sertifikat Asistensi IoT (PDF)",
+        url: "/documents/asistensi_IoT.pdf",
+      },
+      {
+        title: "Sertifikat Asistensi Data Science (PDF)",
+        url: "/documents/asistensi_datascience.pdf",
+      },
+    ],
   },
   {
     id: "campus-digital",
@@ -20,12 +30,18 @@ export const experiencesData: Experience[] = [
     company: "Campus Digital Indonesia",
     period: "Jan 2025 - Apr 2025",
     location: "Semarang, Jawa Tengah, Indonesia",
+    image: "/images/profile/magang_cdi.jpeg",
     description: [
-      "Mengembangkan arsitektur backend berbasis web menggunakan framework Laravel dan RESTful API.",
-      "Membangun antarmuka modern dan integrasi API frontend menggunakan React.js pada platform manajemen bisnis.",
-      "Mengoptimalkan database query MySQL dan memastikan keamanan integrasi endpoint API.",
+      "Mengembangkan arsitektur backend berbasis Laravel, RESTful API andal, serta optimasi query database MySQL.",
+      "Membangun antarmuka manajemen bisnis yang interaktif dan responsif menggunakan React.js.",
     ],
     technologies: ["Laravel", "React.js", "PHP", "RESTful API", "MySQL", "Back-End Web Development"],
+    certificates: [
+      {
+        title: "Sertifikat Magang Campus Digital Indonesia (PDF)",
+        url: "/documents/Setifikat Kompetensi Junior Web Developer.pdf",
+      },
+    ],
   },
   {
     id: "upgris-robotic-team",
@@ -33,10 +49,10 @@ export const experiencesData: Experience[] = [
     company: "UPGRIS Robotic Team",
     period: "Nov 2022 - Nov 2025 (3 thn 1 bln)",
     location: "Semarang, Jawa Tengah, Indonesia",
+    image: "/images/profile/robotic.jpeg",
     description: [
-      "Co Head (Nov 2024 - Nov 2025): Memimpin koordinasi tim, manajemen proyek robotika, dan strategi divisi organisasi.",
-      "Head of Programming Division (Nov 2023 - Nov 2024): Memimpin riset dan pemrograman robot, arsitektur logika kendali, dan algoritma automasi.",
-      "Information & Communications Staff (Nov 2022 - Nov 2023): Mengelola publikasi teknis, graphic design, dan dokumentasi kegiatan divisi.",
+      "Memimpin koordinasi organisasi, riset strategi pemrograman logika kendali, dan automasi robot kompetisi.",
+      "Membina regenerasi divisi programming dalam penguasaan C++ mikrokontroler dan publikasi berkala.",
     ],
     technologies: ["Robot Programming", "C++", "Team Management", "Project Management", "Embedded Systems"],
   },
@@ -46,12 +62,18 @@ export const experiencesData: Experience[] = [
     company: "Robotic Team Universitas PGRI Semarang (KRI UMS)",
     period: "Jan 2024 - Jul 2024",
     location: "Surakarta, Jawa Tengah, Indonesia",
+    image: "/images/profile/Sertifikat kri wilayah Tedy Firmansyah_page-0001.jpg",
     description: [
-      "Memimpin tim beranggotakan 3 orang untuk merancang, membangun, dan memprogram robot otonom (KRTMI) pada kompetisi KRI 2024.",
-      "Bertindak sebagai Electrical Engineer yang bertanggung jawab mendesain serta mengimplementasikan sistem kelistrikan dan kontrol kendali robot.",
-      "Memprogram mikrokontroler robot menggunakan C/C++ untuk sistem navigasi otonom, deteksi objek (object detection), dan penyelesaian misi kompetisi.",
+      "Memimpin perancangan, wiring kelistrikan, dan pemrograman robot otonom KRTMI pada kompetisi nasional KRI 2024.",
+      "Mengimplementasikan algoritma navigasi mikrokontroler C/C++ dan deteksi objek presisi untuk penyelesaian misi.",
     ],
     technologies: ["C/C++", "Robotic Design", "Object Detection", "Electrical Control", "Autonomous Navigation"],
+    certificates: [
+      {
+        title: "Sertifikat KRI Wilayah 2024 (PDF)",
+        url: "/documents/Sertifikat kri wilayah Tedy Firmansyah.pdf",
+      },
+    ],
   },
   {
     id: "pkm-ki-2023",
@@ -59,11 +81,18 @@ export const experiencesData: Experience[] = [
     company: "Kampus Merdeka / Kemendikbudristek",
     period: "Jun 2023 - Nov 2023",
     location: "Semarang & Jakarta, Indonesia",
+    image: "/images/profile/TEDY FIRMANSYAH_22670133_PKMKI_4772_page-0001.jpg",
     description: [
-      "Memimpin tim 3 orang dalam merancang dan merealisasikan karya inovasi 'SABUK SEJAK: Ikat Pinggang Berteknologi Internet of Things Sensor Jarak Penghasil Audiosonik Anti Penculikan Anak'.",
-      "Mengembangkan integrasi sensor jarak, modul audiosonik, dan mikrokontroler berbasis IoT untuk sistem perlindungan anak secara real-time.",
+      "Memimpin riset dan fabrikasi inovasi prototipe IoT 'SABUK SEJAK' (Ikat Pinggang Sensor Jarak Audiosonik).",
+      "Mengintegrasikan sensor ultrasonik, modul audiosonik, dan mikrokontroler IoT untuk sistem proteksi anak real-time.",
     ],
     technologies: ["Internet of Things (IoT)", "Arduino / ESP32", "Hardware Prototyping", "Sensor Integration", "Leadership"],
+    certificates: [
+      {
+        title: "Sertifikat Pendanaan PKM-KI (PDF)",
+        url: "/documents/TEDY FIRMANSYAH_22670133_PKMKI_4772.pdf",
+      },
+    ],
   },
   {
     id: "fiverr-freelance",
@@ -71,9 +100,10 @@ export const experiencesData: Experience[] = [
     company: "Fiverr",
     period: "Sep 2021 - Jun 2024 (2 thn 10 bln)",
     location: "Indonesia (Remote Global)",
+    image: "/images/profile/grapic_artist.jpg",
     description: [
-      "Berpengalaman sebagai seller dan graphic artist independen di platform global Fiverr.",
-      "Menyelesaikan lebih dari 300 proyek ilustrasi dan desain visual secara mandiri maupun berkolaborasi dalam tim.",
+      "Menyelesaikan 300+ pesanan ilustrasi digital dan desain visual kustom untuk klien internasional dengan rating kepuasan prima.",
+      "Mengelola komunikasi kebutuhan desain, manajemen tenggat proyek, dan aset grafis berkualitas tinggi.",
     ],
     technologies: ["Graphic Arts", "Digital Illustration", "Visual Design", "Creative Communication"],
   },

@@ -1,3 +1,8 @@
+export interface ExperienceCertificate {
+  title: string;
+  url: string;
+}
+
 export interface Experience {
   id: string;
   role: string;
@@ -6,6 +11,14 @@ export interface Experience {
   location: string;
   description: string[];
   technologies: string[];
+  image?: string;
+  certificates?: ExperienceCertificate[];
+}
+
+export interface EducationCertificate {
+  title: string;
+  url?: string;
+  status?: string;
 }
 
 export interface Education {
@@ -16,4 +29,6 @@ export interface Education {
   location?: string;
   description?: string;
   gpa?: string;
+  image?: string;
+  certificates?: EducationCertificate[];
 }

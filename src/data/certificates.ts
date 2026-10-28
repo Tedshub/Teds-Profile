@@ -1,19 +1,55 @@
 import { Certificate } from '../types/certificate';
 
 export const certificatesData: Certificate[] = [
-  // 1. Sertifikasi Teknis Utama
+  // 1. Sertifikasi Kompetensi BNSP (Dalam Proses Penerbitan) - Paling Pertama
+  {
+    id: 'cert-bnsp',
+    title: 'Sertifikasi Kompetensi BNSP — Junior Web Developer',
+    category: 'Sertifikasi Profesi Nasional',
+    issuer: 'Badan Nasional Sertifikasi Profesi (BNSP) / LSP Teknologi Digital',
+    year: '2026',
+    status: 'Dalam Proses Penerbitan',
+    type: 'technical',
+    description: 'Standar kompetensi kerja nasional Republik Indonesia untuk keahlian rekayasa web dan pengembangan perangkat lunak profesional.',
+    tags: ['BNSP', 'LSP', 'Junior Web Developer', 'Standar Nasional'],
+  },
+  // 2. Asistensi Akademik - Internet of Things (IoT)
+  {
+    id: 'cert-asistensi-iot',
+    title: 'Sertifikat Asisten Dosen Internet of Things (IoT)',
+    category: 'Asistensi Akademik',
+    issuer: 'Universitas PGRI Semarang',
+    year: '2025',
+    fileUrl: '/documents/asistensi_IoT.pdf',
+    type: 'technical',
+    description: 'Sertifikat dan surat keputusan resmi sebagai asisten pengajar universitas pada bimbingan praktikum Internet of Things (IoT).',
+    tags: ['Teaching Assistant', 'IoT', 'Hardware & Sensor', 'UPGRIS'],
+  },
+  // 3. Asistensi Akademik - Data Science
+  {
+    id: 'cert-asistensi-datascience',
+    title: 'Sertifikat Asisten Dosen Data Science',
+    category: 'Asistensi Akademik',
+    issuer: 'Universitas PGRI Semarang',
+    year: '2025',
+    fileUrl: '/documents/asistensi_datascience.pdf',
+    type: 'technical',
+    description: 'Sertifikat resmi asisten pengajar universitas untuk pendampingan materi, studi kasus komputasi data, dan bimbingan praktikum Data Science.',
+    tags: ['Teaching Assistant', 'Data Science', 'Python', 'UPGRIS'],
+  },
+  // 4. Sertifikasi Teknis Magang
   {
     id: 'cert-jwd',
     title: 'Sertifikat Kompetensi Junior Web Developer',
     category: 'Sertifikasi Kompetensi Teknis',
-    issuer: 'Badan Nasional Sertifikasi Profesi (BNSP) / LSP Informatika',
-    year: '2024',
+    issuer: 'PT. Campus Digital Indonesia',
+    year: '2025',
     fileUrl: '/documents/Setifikat Kompetensi Junior Web Developer.pdf',
     type: 'technical',
     description: 'Standar kompetensi kerja nasional bidang rekayasa perangkat lunak dan pemrograman web profesional.',
-    tags: ['Web Development', 'BNSP', 'Kompetensi Teknis', 'Full Stack'],
+    tags: ['Web Development', 'Kompetensi Teknis', 'Full Stack', 'Laravel & React'],
   },
-  // 2. Kompetisi Robotika & IoT Teknis
+  // 5. Kompetisi Robotika & IoT Teknis
   {
     id: 'cert-kri',
     title: 'Sertifikat Kontes Robot Indonesia (KRI) Wilayah',
@@ -25,19 +61,19 @@ export const certificatesData: Certificate[] = [
     description: 'Penghargaan kompetisi robotika bergengsi tingkat nasional di bidang otomasi, mikrokontroler, dan perancangan robot.',
     tags: ['Robotika', 'IoT', 'Embedded Systems', 'KRI Nasional'],
   },
-  // 3. Riset & Inovasi Teknologi
+  // 6. Riset & Inovasi Teknologi
   {
     id: 'cert-pkmki',
     title: 'Program Kreativitas Mahasiswa Karsa Cipta (PKM-KI)',
     category: 'Inovasi & Riset Teknologi Terapan',
     issuer: 'Direktorat Pembelajaran & Kemahasiswaan (Belmawa) Kemendikbudristek',
-    year: '2024',
+    year: '2023',
     fileUrl: '/documents/TEDY FIRMANSYAH_22670133_PKMKI_4772.pdf',
     type: 'research',
     description: 'Pendanaan dan apresiasi karya cipta teknologi solutif berbasis riset dan perekayasaan sistem cerdas.',
     tags: ['Riset Teknologi', 'Inovasi Cipta', 'Kemendikbudristek', 'Smart System'],
   },
-  // 4. Hak Cipta (HaKI) Teknis - DSS RKS
+  // 7. Hak Cipta (HaKI) Teknis - DSS RKS
   {
     id: 'haki-dss',
     title: 'Surat Pencatatan Hak Cipta: DSS RKS',
@@ -49,7 +85,7 @@ export const certificatesData: Certificate[] = [
     description: 'Sertifikat resmi perlindungan ciptaan program komputer berupa Decision Support System berbasis web.',
     tags: ['HaKI', 'Program Komputer', 'Kemenkumham RI', 'DSS'],
   },
-  // 5. Hak Cipta (HaKI) Teknis - Siramdas
+  // 8. Hak Cipta (HaKI) Teknis - Siramdas
   {
     id: 'haki-siramdas',
     title: 'Surat Pencatatan Hak Cipta: Siramdas (Penyiraman Cerdas IoT)',
@@ -61,7 +97,7 @@ export const certificatesData: Certificate[] = [
     description: 'Pencatatan hak cipta sistem penyiraman otomatis berbasis sensor dan Internet of Things.',
     tags: ['HaKI', 'IoT Hardware & Software', 'Kemenkumham RI', 'Smart Farming'],
   },
-  // 6. Hak Cipta (HaKI) - Simankole
+  // 9. Hak Cipta (HaKI) - Simankole
   {
     id: 'haki-simankole',
     title: 'Surat Pencatatan Hak Cipta: Simankole',
@@ -73,7 +109,7 @@ export const certificatesData: Certificate[] = [
     description: 'Pencatatan hak cipta perangkat lunak manajemen operasional dan keuangan terintegrasi.',
     tags: ['HaKI', 'Sistem Informasi', 'Kemenkumham RI', 'Web Application'],
   },
-  // 7. Hak Cipta (HaKI) - PKM KI
+  // 10. Hak Cipta (HaKI) - PKM KI
   {
     id: 'haki-pkmki',
     title: 'Surat Pencatatan Hak Cipta: Karya Inovasi PKM-KI',

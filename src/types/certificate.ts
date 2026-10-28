@@ -4,7 +4,8 @@ export interface Certificate {
   category: string;
   issuer: string;
   year: string;
-  fileUrl: string;
+  fileUrl?: string;
+  status?: string;
   type: 'technical' | 'competition' | 'research' | 'haki';
   description: string;
   tags: string[];

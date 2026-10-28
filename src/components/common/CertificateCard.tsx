@@ -1,6 +1,6 @@
 import React from 'react';
 import { Certificate } from '../../types/certificate';
-import { Award, FileText, ExternalLink, ShieldCheck } from 'lucide-react';
+import { Award, FileText, ExternalLink, ShieldCheck, Clock } from 'lucide-react';
 
 interface CertificateCardProps {
   certificate: Certificate;
@@ -9,6 +9,7 @@ interface CertificateCardProps {
 
 export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, className = '' }) => {
   const isHaki = certificate.type === 'haki';
+  const isPending = !!certificate.status;
 
   return (
     <div
@@ -43,7 +44,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, c
           flexWrap: 'wrap',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
           <span
             style={{
               display: 'inline-flex',
@@ -66,6 +67,26 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, c
             )}
             {certificate.category}
           </span>
+
+          {isPending && (
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.3rem',
+                fontSize: '0.72rem',
+                fontWeight: 700,
+                padding: '0.2rem 0.55rem',
+                borderRadius: '4px',
+                backgroundColor: '#FEF3C7',
+                border: '1px solid #F59E0B',
+                color: '#B45309',
+              }}
+            >
+              <Clock size={11} />
+              {certificate.status}
+            </span>
+          )}
         </div>
 
         <span
@@ -136,7 +157,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, c
         ))}
       </div>
 
-      {/* CTA: Open Document */}
+      {/* CTA / Status */}
       <div
         style={{
           borderTop: '1px solid var(--border)',
@@ -146,31 +167,47 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, c
           justifyContent: 'space-between',
         }}
       >
-        <a
-          href={certificate.fileUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.45rem',
-            fontSize: '0.84rem',
-            fontWeight: 700,
-            color: 'var(--text-primary)',
-            transition: 'color 0.15s ease',
-            textDecoration: 'none',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = 'var(--yellow-hover)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = 'var(--text-primary)';
-          }}
-        >
-          <FileText size={15} style={{ color: 'var(--yellow-primary)' }} />
-          <span>Buka Dokumen PDF</span>
-          <ExternalLink size={13} style={{ opacity: 0.7 }} />
-        </a>
+        {certificate.fileUrl ? (
+          <a
+            href={certificate.fileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              fontSize: '0.84rem',
+              fontWeight: 700,
+              color: 'var(--text-primary)',
+              transition: 'color 0.15s ease',
+              textDecoration: 'none',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = 'var(--yellow-hover)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'var(--text-primary)';
+            }}
+          >
+            <FileText size={15} style={{ color: 'var(--yellow-primary)' }} />
+            <span>Buka Dokumen PDF</span>
+            <ExternalLink size={13} style={{ opacity: 0.7 }} />
+          </a>
+        ) : (
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              fontSize: '0.82rem',
+              fontWeight: 700,
+              color: '#B45309',
+            }}
+          >
+            <Clock size={15} style={{ color: '#D97706' }} />
+            <span>Dokumen {certificate.status || 'Dalam Proses Penerbitan'}</span>
+          </div>
+        )}
       </div>
     </div>
   );

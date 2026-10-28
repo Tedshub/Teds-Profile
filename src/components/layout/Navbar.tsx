@@ -2,20 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
+import { projectsData } from '../../data/projects';
+import { experiencesData } from '../../data/experiences';
+import { certificatesData } from '../../data/certificates';
 
-const navItems = [
-  { label: 'Tentang',     href: '#about' },
-  { label: 'Keahlian',   href: '#skills' },
-  { label: 'Proyek',     href: '#projects' },
-  { label: 'Pengalaman', href: '#experience' },
-  { label: 'Pendidikan', href: '#education' },
-  { label: 'Sertifikat', href: '#certificates' },
-  { label: 'Kontak',     href: '#contact' },
-];
+interface NavItem {
+  label: string;
+  href: string;
+  badge?: number;
+}
 
 export const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled]           = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navItems: NavItem[] = [
+    { label: 'Tentang', href: '#about' },
+    { label: 'Keahlian', href: '#skills' },
+    { label: 'Proyek', href: '#projects', badge: projectsData.length },
+    { label: 'Pengalaman', href: '#experience', badge: experiencesData.length },
+    { label: 'Pendidikan', href: '#education' },
+    { label: 'Sertifikat', href: '#certificates', badge: certificatesData.length },
+    { label: 'Kontak', href: '#contact' },
+  ];
+
   const activeSection = useScrollSpy(
     navItems.map((i) => i.href.substring(1)),
     100
@@ -70,7 +80,7 @@ export const Navbar: React.FC = () => {
             style={{
               display: 'none',
               alignItems: 'center',
-              gap: '0.25rem',
+              gap: '0.35rem',
             }}
           >
             {navItems.map((item) => {
@@ -80,17 +90,61 @@ export const Navbar: React.FC = () => {
                   key={item.href}
                   href={item.href}
                   style={{
-                    padding: '0.4rem 0.75rem',
+                    position: 'relative',
+                    padding: item.badge !== undefined ? '0.4rem 0.9rem 0.4rem 0.75rem' : '0.4rem 0.75rem',
                     borderRadius: 'var(--radius-md)',
                     fontSize: '0.875rem',
-                    fontWeight: isActive ? 600 : 500,
+                    fontWeight: isActive ? 700 : 500,
                     color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)',
                     backgroundColor: isActive ? 'var(--yellow-subtle)' : 'transparent',
                     borderBottom: isActive ? '2px solid var(--yellow-primary)' : '2px solid transparent',
                     transition: 'all 0.2s ease',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.color = 'var(--text-primary)';
+                      e.currentTarget.style.backgroundColor = 'var(--bg-subtle)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.color = 'var(--text-secondary)';
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                    }
                   }}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+
+                  {/* Top-Right Badge */}
+                  {item.badge !== undefined && (
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: '1px',
+                        right: '1px',
+                        transform: 'translate(20%, -20%)',
+                        minWidth: '18px',
+                        height: '18px',
+                        padding: '0 4px',
+                        borderRadius: '9999px',
+                        backgroundColor: isActive ? 'var(--yellow-primary)' : '#0f0f0f',
+                        color: isActive ? '#0f0f0f' : '#ffffff',
+                        fontSize: '0.65rem',
+                        fontWeight: 800,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        lineHeight: 1,
+                        border: '1.5px solid #ffffff',
+                        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.16)',
+                        transition: 'all 0.2s ease',
+                      }}
+                    >
+                      {item.badge}
+                    </span>
+                  )}
                 </a>
               );
             })}
@@ -132,22 +186,50 @@ export const Navbar: React.FC = () => {
               gap: '0.25rem',
             }}
           >
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                style={{
-                  padding: '0.5rem 0.5rem',
-                  fontSize: '0.95rem',
-                  fontWeight: 500,
-                  color: 'var(--text-secondary)',
-                  borderRadius: 'var(--radius-md)',
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.substring(1);
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '0.55rem 0.75rem',
+                    fontSize: '0.95rem',
+                    fontWeight: isActive ? 700 : 500,
+                    color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)',
+                    backgroundColor: isActive ? 'var(--yellow-subtle)' : 'transparent',
+                    borderRadius: 'var(--radius-md)',
+                  }}
+                >
+                  <span>{item.label}</span>
+
+                  {item.badge !== undefined && (
+                    <span
+                      style={{
+                        minWidth: '22px',
+                        height: '22px',
+                        padding: '0 6px',
+                        borderRadius: '9999px',
+                        backgroundColor: isActive ? 'var(--yellow-primary)' : 'var(--bg-muted)',
+                        color: isActive ? '#0f0f0f' : 'var(--text-secondary)',
+                        border: '1px solid var(--border)',
+                        fontSize: '0.74rem',
+                        fontWeight: 800,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {item.badge}
+                    </span>
+                  )}
+                </a>
+              );
+            })}
             <a
               href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}
