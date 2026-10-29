@@ -50,12 +50,25 @@ html {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   background-color: var(--bg);
+  position: relative;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 a {
@@ -366,10 +379,17 @@ button {
 
 @media (max-width: 768px) {
   .container {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 1.15rem;
+    padding-right: 1.15rem;
   }
   .section {
-    padding: 4rem 0;
+    padding: 3.5rem 0;
+  }
+  /* Cegah overflow horizontal akibat translasi animasi scroll reveal di mobile */
+  .reveal-left {
+    transform: translateY(20px) !important;
+  }
+  .reveal-right {
+    transform: translateY(20px) !important;
   }
 }

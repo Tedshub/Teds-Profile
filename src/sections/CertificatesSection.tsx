@@ -31,12 +31,14 @@ export const CertificatesSection: React.FC = () => {
             className="reveal delay-100"
             style={{
               display: 'flex',
+              flexWrap: 'wrap',
               gap: '0.5rem',
               backgroundColor: 'var(--bg-muted)',
               padding: '0.3rem',
               borderRadius: 'var(--radius-md)',
               border: '1px solid var(--border)',
               marginBottom: '3.5rem',
+              maxWidth: '100%',
             }}
           >
             <button
@@ -47,7 +49,7 @@ export const CertificatesSection: React.FC = () => {
                 color: filter === 'all' ? '#ffffff' : 'var(--text-secondary)',
                 padding: '0.45rem 0.9rem',
                 borderRadius: '4px',
-                fontSize: '0.82rem',
+                fontSize: '0.70rem',
                 fontWeight: 600,
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
@@ -63,7 +65,7 @@ export const CertificatesSection: React.FC = () => {
                 color: filter === 'technical' ? '#ffffff' : 'var(--text-secondary)',
                 padding: '0.45rem 0.9rem',
                 borderRadius: '4px',
-                fontSize: '0.82rem',
+                fontSize: '0.70rem',
                 fontWeight: 600,
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
@@ -79,7 +81,7 @@ export const CertificatesSection: React.FC = () => {
                 color: filter === 'haki' ? '#ffffff' : 'var(--text-secondary)',
                 padding: '0.45rem 0.9rem',
                 borderRadius: '4px',
-                fontSize: '0.82rem',
+                fontSize: '0.70rem',
                 fontWeight: 600,
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',

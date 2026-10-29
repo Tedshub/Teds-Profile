@@ -73,11 +73,11 @@ export const HeroSection: React.FC = () => {
           }}
         >
           {/* Left Column: All Hero Text */}
-          <div style={{ maxWidth: '600px', flex: '1 1 500px' }}>
+          <div style={{ maxWidth: '600px', width: '100%', flex: '1 1 auto', minWidth: 0 }}>
             {/* Role label */}
             <div className="reveal delay-100" style={{ marginBottom: '1.25rem' }}>
               <span
-                className="label"
+                className="label hero-role-label"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -89,6 +89,8 @@ export const HeroSection: React.FC = () => {
                   border: '1px solid var(--border)',
                   letterSpacing: '0.06em',
                   boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)',
+                  lineHeight: 1.45,
+                  maxWidth: '100%',
                 }}
               >
                 {profileData.role}
@@ -311,6 +313,11 @@ export const HeroSection: React.FC = () => {
           .hero-bg-sharp {
             background-size: contain !important;
             background-position: center 15% !important;
+          }
+          .hero-role-label {
+            font-size: 0.68rem !important;
+            padding: 0.35rem 0.65rem !important;
+            letter-spacing: 0.04em !important;
           }
         }
       `}</style>

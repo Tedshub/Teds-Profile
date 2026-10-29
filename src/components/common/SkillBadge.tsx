@@ -10,7 +10,7 @@ export interface SkillBadgeProps {
 export const SkillBadge: React.FC<SkillBadgeProps> = ({ name, level, className = '', style = {} }) => {
   return (
     <div
-      className={className}
+      className={`skill-badge-item ${className}`.trim()}
       style={{
         display: 'flex',
         alignItems: 'center',
