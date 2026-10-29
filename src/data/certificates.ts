@@ -4,7 +4,7 @@ export const certificatesData: Certificate[] = [
   // 1. Sertifikasi Kompetensi BNSP (Dalam Proses Penerbitan) - Paling Pertama
   {
     id: 'cert-bnsp',
-    title: 'Sertifikasi Kompetensi BNSP — Junior Web Developer',
+    title: 'Sertifikasi Kompetensi BNSP — Junior Web Programmer',
     category: 'Sertifikasi Profesi Nasional',
     issuer: 'Badan Nasional Sertifikasi Profesi (BNSP) / LSP Teknologi Digital',
     year: '2026',

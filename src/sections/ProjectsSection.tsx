@@ -83,7 +83,7 @@ export const ProjectsSection: React.FC = () => {
           </div>
 
           <p className="body-lg" style={{ marginTop: '0.75rem' }}>
-            Kumpulan karya dan rekayasa perangkat lunak yang menggambarkan kemampuan teknis dan pendekatan saya dalam membangun solusi digital.
+            Kumpulan Proyek Website, Internet of Things (IoT) dan Computer Vision (CV).
           </p>
         </div>
 

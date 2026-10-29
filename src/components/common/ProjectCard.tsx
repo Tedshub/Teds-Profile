@@ -44,18 +44,28 @@ export const ProjectCard: React.FC<{ project: Project; className?: string }> = (
           flexDirection: 'column',
           flex: 1,
           gap: '0.75rem',
+          minHeight: '9rem',   /* tinggi minimum agar semua card seragam */
         }}
       >
-        {/* Tags */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-          {project.tags.map((tag) => (
-            <span key={tag} className="badge">{tag}</span>
-          ))}
-        </div>
 
-        <h3 className="heading-2">{project.title}</h3>
-
-        <p className="body" style={{ flex: 1 }}>{project.description}</p>
+        <h3
+          style={{
+            fontSize:
+              project.title.length > 120
+                ? '0.72rem'
+                : project.title.length > 90
+                ? '0.8rem'
+                : project.title.length > 60
+                ? '0.88rem'
+                : '1rem',
+            fontWeight: 700,
+            lineHeight: 1.45,
+            margin: 0,
+            color: 'var(--text-primary)',
+          }}
+        >
+          {project.title}
+        </h3>
 
         {/* Links */}
         <div style={{ display: 'flex', gap: '0.75rem', paddingTop: '0.5rem', borderTop: '1px solid var(--border)' }}>
