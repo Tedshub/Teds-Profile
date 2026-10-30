@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Project } from '../../types/project';
 import { ExternalLink, Expand, FileText } from 'lucide-react';
 import { ProjectModal } from './ProjectModal';
+import { getImageUrl } from '../../utils/assets';
 
 export const ProjectCard: React.FC<{ project: Project; className?: string }> = ({
   project,
@@ -40,7 +41,7 @@ export const ProjectCard: React.FC<{ project: Project; className?: string }> = (
           }}
         >
           <img
-            src={project.image}
+            src={getImageUrl(project.image)}
             alt={project.title}
             className="project-image"
             style={{

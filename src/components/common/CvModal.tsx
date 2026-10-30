@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { X, Code2, Cpu, ExternalLink } from 'lucide-react';
+import { getImageUrl } from '../../utils/assets';
 
 interface CvModalProps {
   isOpen: boolean;
@@ -119,7 +120,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {/* Option 1: Web Developer */}
           <a
-            href="/documents/CV Web Developer.pdf"
+            href={getImageUrl('/documents/CV Web Developer.pdf')}
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
@@ -192,7 +193,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
 
           {/* Option 2: IoT */}
           <a
-            href="/documents/CV IoT.pdf"
+            href={getImageUrl('/documents/CV IoT.pdf')}
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}

@@ -5,6 +5,7 @@ import { SocialLinks } from '../components/ui/SocialLinks';
 import { profileData } from '../data/profile';
 import { ArrowRight, EyeIcon, MapPin } from 'lucide-react';
 import { CvModal } from '../components/common/CvModal';
+import { getImageUrl } from '../utils/assets';
 
 export const HeroSection: React.FC = () => {
   const [isCvModalOpen, setIsCvModalOpen] = useState(false);
@@ -25,7 +26,7 @@ export const HeroSection: React.FC = () => {
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url(/images/profile/hero-bg.jpg)',
+          backgroundImage: `url(${getImageUrl('/images/profile/hero-bg.jpg')})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -41,7 +42,7 @@ export const HeroSection: React.FC = () => {
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url(/images/profile/hero-bg.jpg)',
+          backgroundImage: `url(${getImageUrl('/images/profile/hero-bg.jpg')})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -227,7 +228,7 @@ export const HeroSection: React.FC = () => {
               }}
             >
               <img
-                src="/images/profile/person.png"
+                src={getImageUrl('/images/profile/person.png')}
                 alt={profileData.name}
                 style={{
                   width: '100%',

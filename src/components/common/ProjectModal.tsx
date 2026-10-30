@@ -10,6 +10,7 @@ import {
   Image as ImageIcon,
 } from 'lucide-react';
 import { Project } from '../../types/project';
+import { getImageUrl } from '../../utils/assets';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -254,7 +255,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 isVideo ? (
                   <video
                     key={currentSlide.src}
-                    src={currentSlide.src}
+                    src={getImageUrl(currentSlide.src)}
                     controls
                     autoPlay
                     playsInline
@@ -263,7 +264,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 ) : (
                   <img
                     key={currentSlide.src}
-                    src={currentSlide.src}
+                    src={getImageUrl(currentSlide.src)}
                     alt={project.title}
                     style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                   />
@@ -426,7 +427,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                           </div>
                         ) : (
                           <img
-                            src={s.src}
+                            src={getImageUrl(s.src)}
                             alt=""
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                           />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Certificate } from '../../types/certificate';
 import { Award, FileText, ExternalLink, ShieldCheck, Clock } from 'lucide-react';
+import { getImageUrl } from '../../utils/assets';
 
 interface CertificateCardProps {
   certificate: Certificate;
@@ -169,7 +170,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, c
       >
         {certificate.fileUrl ? (
           <a
-            href={certificate.fileUrl}
+            href={getImageUrl(certificate.fileUrl)}
             target="_blank"
             rel="noopener noreferrer"
             style={{
