@@ -19,7 +19,7 @@ export interface Profile {
 
 export const profileData: Profile = {
   name: "Tedy Firmansyah",
-  role: "Full Stack Web Developer, IoT & Computer Vision Engineer",
+  role: "Junior Full Stack Web Developer, IoT & Computer Vision Engineer",
   tagline: "Membangun aplikasi web dan solusi IoT yang andal, performan, dan berdampak nyata.",
   bio: "Fresh Graduate Universitas PGRI Semarang dengan minat dan keahlian dalam Web Development menggunakan framework Laravel dan library React.js, serta Artificial Intelligence, Internet of Things (IoT), Robotika, dan Embedded Systems. Memiliki pengalaman mengembangkan berbagai proyek berbasis web, AI, IoT, robotika, dan firmware melalui studi maupun proyek praktis. Berpengalaman sebagai Asisten Dosen selama satu tahun pada mata kuliah IoT dan Data Science. Adaptif terhadap teknologi baru, memiliki kemampuan belajar yang baik, serta berkomitmen untuk terus mengembangkan kompetensi dan memberikan kontribusi di lingkungan profesional.",
   email: "tedysyhh07@gmail.com",

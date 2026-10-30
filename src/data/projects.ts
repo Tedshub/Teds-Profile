@@ -7,39 +7,39 @@ export const projectsData: Project[] = [
     image: "/images/projects/power-meter-monitoring.jpg",
     category: "web",
     demoUrl: "https://cekel.my.id/",
-    tech: ["Python", "Modbus RTU", "Power Meter FORT FCN300-3E4Y", "Intel NUC", "Panel LVMDP & AC", "Web Real-Time", "MySQL"],
+    tech: ["Python", "Modbus RTU", "RS-485", "Power Meter FORT FCN300-3E4Y", "Intel NUC", "Laravel", "React.js", "Inertia.js", "MySQL", "Heartbeat System"],
     description:
-      "Sistem monitoring energi listrik terintegrasi berbasis IoT yang membaca konsumsi daya listrik menggunakan 2 unit Power Meter FORT FCN300-3E4Y untuk memonitor beban distribusi AC dan panel utama LVMDP secara real-time via protokol Modbus RTU (RS-485). Program akuisisi data dijalankan menggunakan Python pada Mini PC Intel NUC yang diinstalasi langsung di dalam panel distribusi listrik, kemudian data diteruskan ke server web (cekel.my.id) untuk visualisasi live, analitik beban, dan export laporan periodik.",
+      "Sistem pemantauan konsumsi energi listrik tiga fasa secara real-time berbasis IoT. Menggunakan CT clamp sebagai sensor arus yang terpasang pada panel listrik dan terhubung ke Power Meter FORT FCN300-3E4Y untuk membaca beban distribusi AC dan panel utama LVMDP (tegangan, arus, daya aktif/semu/reaktif, power factor, dan frekuensi). Komunikasi industrial menggunakan protokol Modbus RTU melalui RS-485 dengan modul USB-to-RS485 ke Mini PC Intel NUC yang dipasang langsung di dalam panel. Program data collector Python membaca data secara periodik, menyimpan ke file Excel lokal sebagai offline buffer, dan melakukan auto-sync ke backend via REST API over HTTPS saat koneksi pulih. Dilengkapi sistem heartbeat pemantau status online/offline (deteksi offline jika ping terhenti >15 detik) dan dashboard web real-time berbasis Laravel, React, dan Inertia.js.",
     slides: [
       {
         src: "/images/projects/power-meter-monitoring/landing-page.jpg",
         type: "image",
         caption:
-          "Landing page platform sistem monitoring energi listrik real-time (cekel.my.id) — gerbang akses pemantauan beban kelistrikan terpadu.",
+          "Landing page resmi platform sistem monitoring energi listrik real-time (cekel.my.id) — gerbang akses pemantauan beban kelistrikan terpadu.",
       },
       {
         src: "/images/projects/power-meter-monitoring/hardware.jpg",
         type: "image",
         caption:
-          "Instalasi hardware pada panel distribusi: integrasi 2 unit Power Meter FORT FCN300-3E4Y untuk membaca beban distribusi AC & LVMDP, serta Mini PC Intel NUC yang dipasang langsung di dalam panel untuk menjalankan program Python akuisisi data via Modbus RTU.",
+          "Instalasi fisik hardware di dalam panel listrik: CT clamp sensor arus terhubung ke 2 unit Power Meter FORT FCN300-3E4Y untuk membaca beban distribusi AC dan LVMDP, serta Mini PC Intel NUC yang menjalankan program data collector Python via antarmuka USB-to-RS485 (Modbus RTU).",
       },
       {
         src: "/images/projects/power-meter-monitoring/dashoard.png",
         type: "image",
         caption:
-          "Dashboard web real-time menampilkan parameter listrik lengkap (tegangan per fasa, arus, daya aktif, frekuensi, power factor, dan akumulasi kWh) dari kedua power meter pada beban AC dan LVMDP.",
+          "Dashboard web real-time berbasis Laravel & React (Inertia.js) menampilkan visualisasi parameter listrik lengkap (tegangan, arus, daya aktif/semu/reaktif, power factor, frekuensi, akumulasi kWh) serta status koneksi heartbeat perangkat secara live.",
       },
       {
         src: "/images/projects/power-meter-monitoring/detail-data.png",
         type: "image",
         caption:
-          "Halaman detail data analitik dengan grafik fluktuasi beban listrik historis, log anomali daya, serta status konektivitas perangkat secara langsung.",
+          "Halaman detail analitik data dengan grafik fluktuasi konsumsi listrik historis, log anomali daya, dan mekanisme auto-sync dari offline buffer lokal.",
       },
       {
         src: "/images/projects/power-meter-monitoring/export-laporan.png",
         type: "image",
         caption:
-          "Fitur export laporan penggunaan energi listrik format PDF/Excel untuk mempermudah audit kelistrikan, analisis efisiensi energi, dan pelaporan manajemen.",
+          "Fitur ekspor laporan periodik penggunaan energi listrik format Excel/PDF untuk audit kelistrikan, analisis efisiensi konsumsi daya, dan pelaporan manajemen.",
       },
     ],
   },
@@ -49,21 +49,63 @@ export const projectsData: Project[] = [
     image: "/images/projects/CRM.png",
     category: "web",
     demoUrl: "https://loyalcust.rizkikurni.my.id/",
-    tech: ["React.js", "Laravel", "REST API", "MySQL", "Tailwind CSS"],
+    tech: ["Laravel 11", "Next.js", "Tailwind CSS", "MySQL", "RBAC", "2FA / OTP", "Email Invitation", "PDF Report"],
     description:
-      "Platform CRM bernama Loyalcust yang dirancang untuk membantu bisnis mengelola hubungan pelanggan, riwayat transaksi, program loyalitas, dan analitik pelanggan dalam satu dashboard terpadu yang dapat diakses secara live di loyalcust.rizkikurni.my.id.",
+      "Platform Customer Relationship Management (CRM) komprehensif bernama Loyalcust yang dikembangkan menggunakan Laravel 11, Next.js, Tailwind CSS, dan database MySQL. Dilengkapi implementasi Role-Based Access Control (RBAC) untuk manajemen hak akses hierarkis, Two-Factor Authentication (2FA) berbasis One-Time Password (OTP), sistem email invitation untuk mengundang anggota tim sesuai struktur jabatan, serta fitur utama CRM seperti manajemen pelanggan, produk, deals, import data leads via Excel, dan pelaporan yang dapat diunduh dalam format PDF. Dapat diakses secara live di loyalcust.rizkikurni.my.id.",
     slides: [
       {
         src: "/images/projects/crm/landing-page.jpg",
         type: "image",
         caption:
-          "Landing page resmi Loyalcust CRM (loyalcust.rizkikurni.my.id) — platform terpadu solusi manajemen loyalitas dan relasi pelanggan.",
+          "Landing page platform Loyalcust CRM (loyalcust.rizkikurni.my.id) — portal pengenalan solusi terpadu manajemen relasi pelanggan, deals, dan analitik bisnis.",
       },
       {
-        src: "/images/projects/CRM.png",
+        src: "/images/projects/crm/mfa-otp-verification.png",
         type: "image",
         caption:
-          "Tampilan dashboard utama Loyalcust CRM dengan visualisasi metrik pelanggan, volume transaksi, segmentasi keanggotaan loyalty, dan tren retensi pelanggan.",
+          "Verifikasi Two-Factor Authentication (2FA) menggunakan kode One-Time Password (OTP) sebagai lapisan keamanan ekstra saat autentikasi akun pengguna.",
+      },
+      {
+        src: "/images/projects/crm/dashboard.png",
+        type: "image",
+        caption:
+          "Dashboard analitik utama Loyalcust CRM menampilkan ringkasan metrik leads, conversion rate, tren deals, serta performa penjualan tim secara real-time.",
+      },
+      {
+        src: "/images/projects/crm/manajemen-pelanggan.png",
+        type: "image",
+        caption:
+          "Halaman manajemen pelanggan lengkap dengan segmentasi status kontak, riwayat interaksi, dan integrasi data profil konsumen.",
+      },
+      {
+        src: "/images/projects/crm/manajemen-karyawan.png",
+        type: "image",
+        caption:
+          "Manajemen karyawan berbasis Role-Based Access Control (RBAC) untuk mengatur pembagian tugas, peran, dan hierarki akses pengguna sistem.",
+      },
+      {
+        src: "/images/projects/crm/employee-invitattion-via-email.png",
+        type: "image",
+        caption:
+          "Fitur email invitation otomatis untuk mengundang anggota tim baru bergabung ke dalam organisasi sesuai dengan role dan hierarki jabatan.",
+      },
+      {
+        src: "/images/projects/crm/manajemen-produk.png",
+        type: "image",
+        caption:
+          "Katalog manajemen produk dan layanan perusahaan untuk mempermudah pencatatan penawaran deals dan perhitungan transaksi pelanggan.",
+      },
+      {
+        src: "/images/projects/crm/halaman-deals-dan-pelaporan.png",
+        type: "image",
+        caption:
+          "Pipeline deals penjualan interaktif dan modul pelaporan CRM yang dapat diekspor langsung ke dalam format dokumen PDF.",
+      },
+      {
+        src: "/images/projects/crm/support-import-file-excel-leads-data.png",
+        type: "image",
+        caption:
+          "Fitur import data leads dalam jumlah banyak (bulk import) secara praktis melalui file spreadsheet Excel (.xlsx).",
       },
     ],
   },
@@ -90,21 +132,93 @@ export const projectsData: Project[] = [
     image: "/images/projects/presensi-mayong.png",
     category: "web",
     demoUrl: "https://presensimayong.dssrks.co.id/",
-    tech: ["Laravel", "Flutter", "Face Recognition", "Geo-Tagging", "Anti-Fake GPS", "MySQL"],
+    tech: ["Laravel 13", "React.js", "Tailwind CSS", "MySQL", "Flutter", "TensorFlow.js (SSD MobileNet V1)", "ML Kit BlazeFace", "MobileFaceNet 192D", "RBAC (4 Roles)", "Anti-Fake GPS"],
     description:
-      "Sistem presensi terintegrasi untuk karyawan desa se-Kecamatan Mayong yang menggabungkan verifikasi biometrik face recognition, geo-tagging koordinat kantor desa, dan mekanisme anti-fake GPS. Mendukung operasional online maupun offline secara real-time dan dapat diakses melalui portal presensimayong.dssrks.co.id.",
+      "Sistem presensi terintegrasi Website & Mobile untuk seluruh karyawan desa se-Kecamatan Mayong, Jepara, Jawa Tengah. Platform Web (Laravel 13, React.js, Tailwind CSS, MySQL) berfungsi sebagai pusat manajemen pengguna, kantor desa, jadwal kerja, data wajah, dan laporan presensi PDF dengan Role-Based Access Control (RBAC) 4 peran (Admin Developer, Admin Kecamatan, Admin Desa, Karyawan Desa). Registrasi wajah karyawan menggunakan auto-capture 5 sudut pose (lurus, menoleh kiri, kanan, atas, bawah) dan face-api.js (SSD MobileNet V1, 68-point Dlib Landmark, ResNet-34 128D). Aplikasi Mobile (Flutter) menjalankan pengenalan wajah offline menggunakan Google ML Kit BlazeFace, Euler Angles, dan MobileFaceNet 192D via tflite_flutter, dilengkapi sistem keamanan Anti-Fake GPS (deteksi Mock Location, isMocked, Root/Jailbreak, dan Emulator) serta mendukung presensi offline dengan auto-sinkronisasi saat terhubung internet.",
     slides: [
       {
         src: "/images/projects/presensi-mayong/landing-page.jpg",
         type: "image",
         caption:
-          "Landing page resmi portal Sistem Presensi Karyawan Desa se-Kecamatan Mayong, Jepara (presensimayong.dssrks.co.id) — pusat informasi dan portal autentikasi presensi kerja.",
+          "Landing page resmi portal Sistem Presensi Karyawan Desa se-Kecamatan Mayong, Jepara (presensimayong.dssrks.co.id) — pusat autentikasi dan gerbang informasi sistem presensi kerja digital.",
       },
       {
-        src: "/images/projects/presensi-mayong.png",
+        src: "/images/projects/presensi-mayong/dashboard-admin-kecamatan.png",
         type: "image",
         caption:
-          "Antarmuka sistem presensi digital dengan verifikasi biometrik wajah (face recognition), validasi radius GPS kantor desa, dan rekonsiliasi data presensi offline ke server pusat.",
+          "Dashboard Admin Kecamatan pada platform web (Laravel 13 & React.js) yang memonitor statistik kehadiran seluruh desa se-Kecamatan Mayong, rekapitulasi pegawai, dan grafik kepatuhan kerja.",
+      },
+      {
+        src: "/images/projects/presensi-mayong/manajemen-kantor-desa.png",
+        type: "image",
+        caption:
+          "Manajemen data kantor desa dan penetapan koordinat geo-tagging (latitude, longitude, dan radius presensi valid) untuk masing-masing kantor desa.",
+      },
+      {
+        src: "/images/projects/presensi-mayong/detail-data-perkantor-desa-manajemen-kepala-desa-pelaporan-presensi-semua-karyawan.png",
+        type: "image",
+        caption:
+          "Detail data per kantor desa yang mencakup pengelolaan profil Kepala Desa, penugasan staf perangkat desa, serta rekapitulasi pelaporan presensi seluruh karyawan desa.",
+      },
+      {
+        src: "/images/projects/presensi-mayong/detail-data-karyawan.png",
+        type: "image",
+        caption:
+          "Halaman detail profil karyawan desa, riwayat penugasan, status verifikasi biometrik wajah, dan pengaturan hak akses pengguna.",
+      },
+      {
+        src: "/images/projects/presensi-mayong/manajaemen-jadwal.png",
+        type: "image",
+        caption:
+          "Modul manajemen jadwal kerja fleksibel dan shift kantor desa, pengaturan jam masuk/pulang, toleransi keterlambatan, serta penetapan hari libur kerja.",
+      },
+      {
+        src: "/images/projects/presensi-mayong/pengambilan-data-wajah-karyawan-oleh-masing-masing-admin-desa.jpg",
+        type: "image",
+        caption:
+          "Proses auto-capture pendaftaran data biometrik wajah karyawan oleh Admin Desa menggunakan face-api.js (SSD MobileNet V1 & ResNet-34 128D) dengan 5 variasi sudut pose (lurus, tengok kiri, kanan, atas, bawah) untuk akurasi pengenalan maksimal.",
+      },
+      {
+        src: "/images/projects/presensi-mayong/detail-presensi-dan-pelaporan-perkaryawan.png",
+        type: "image",
+        caption:
+          "Detail log presensi harian per karyawan dilengkapi bukti foto wajah, timestamp, koordinat GPS, status kehadiran, dan ekspor laporan resmi format PDF.",
+      },
+      {
+        src: "/images/projects/presensi-mayong/mobile-app-tampilan-halaman-presensi.jpeg",
+        type: "image",
+        caption:
+          "Aplikasi Mobile Flutter: Tampilan beranda presensi karyawan yang menampilkan status kehadiran hari ini, jadwal kerja aktif, tombol presensi cepat, dan menu pengajuan izin/cuti.",
+      },
+      {
+        src: "/images/projects/presensi-mayong/mobile-app-tampilan-saat-presensi.jpeg",
+        type: "image",
+        caption:
+          "Aplikasi Mobile Flutter: Antarmuka kamera saat melakukan presensi dengan deteksi wajah Google ML Kit BlazeFace, verifikasi Euler Angles, dan pencocokan MobileFaceNet 192D yang berjalan cepat secara offline.",
+      },
+      {
+        src: "/images/projects/presensi-mayong/mobile-app-tampilan-block-saat-terdeteksi-penggunaan-fake-gps.jpeg",
+        type: "image",
+        caption:
+          "Aplikasi Mobile Flutter: Proteksi keamanan Anti-Fake GPS aktif — sistem langsung memblokir proses presensi saat mendeteksi Mock Location, isMocked, aplikasi spoofing lokasi, akses Root/Jailbreak, maupun emulator.",
+      },
+      {
+        src: "/images/projects/presensi-mayong/mobile-app-tampilan-info-jadwal.jpeg",
+        type: "image",
+        caption:
+          "Aplikasi Mobile Flutter: Tampilan informasi jadwal kerja mingguan, jam presensi masuk dan pulang yang berlaku bagi masing-masing perangkat desa.",
+      },
+      {
+        src: "/images/projects/presensi-mayong/mobile-app-detail-hari-libur.jpeg",
+        type: "image",
+        caption:
+          "Aplikasi Mobile Flutter: Kalender hari libur nasional dan cuti bersama resmi yang tersinkronisasi langsung dari web server kecamatan.",
+      },
+      {
+        src: "/images/projects/presensi-mayong/mobile-app-tampilan-profil.jpeg",
+        type: "image",
+        caption:
+          "Aplikasi Mobile Flutter: Tampilan profil karyawan desa, informasi jabatan/instansi, status sinkronisasi presensi offline, dan pengaturan akun.",
       },
     ],
   },
@@ -118,13 +232,13 @@ export const projectsData: Project[] = [
       "Prototipe pemberi pakan ikan lele otomatis berbasis IoT berkapasitas 3kg+ yang dilengkapi web server untuk monitoring kapasitas pakan secara real-time, penjadwalan pemberian pakan, dan kendali manual jarak jauh. Diimplementasikan di kolam lele Kelurahan Kembangarum, Semarang.",
     slides: [
       {
-        src: "/images/projects/Fish Feeder/MockupFeeder.jpg",
+        src: "/images/projects/Fish Feeder/MockupFeeder.png",
         type: "image",
         caption:
           "Mockup desain alat fish feeder otomatis berkapasitas 3kg+ dengan komponen sensor berat (load cell), servo motor, dan modul ESP32 sebagai pengendali utama.",
       },
       {
-        src: "/images/projects/Fish Feeder/desain-fish-feeder.jpg",
+        src: "/images/projects/Fish Feeder/desain-fish-feeder.png",
         type: "image",
         caption:
           "Desain fisik rangkaian fish feeder yang menampilkan tata letak komponen elektronik, wadah pakan, dan mekanisme penyaluran pakan otomatis.",
@@ -161,7 +275,7 @@ export const projectsData: Project[] = [
     image: "/images/projects/RKS-DSS.png",
     category: "web",
     demoUrl: "https://rks.dssrks.co.id/",
-    tech: ["Laravel", "TOPSIS", "MySQL", "Bootstrap", "Chart.js"],
+    tech: ["Laravel 12", "React.js", "Tailwind CSS", "MySQL", "Metode TOPSIS", "2FA / OTP", "RBAC Multi-Role", "UAT 22 Kepala Sekolah"],
     documents: [
       {
         title: "Sertifikat Hak Cipta (HaKI) DSS RKS",
@@ -169,7 +283,7 @@ export const projectsData: Project[] = [
       },
     ],
     description:
-      "Sistem pendukung keputusan (DSS) berbasis web untuk membantu perencanaan sekolah (RKS) menggunakan metode TOPSIS (Technique for Order of Preference by Similarity to Ideal Solution). Sistem mendukung penilaian alternatif multi-role oleh Kepala Sekolah dan stakeholder sekolah untuk menghasilkan rekomendasi prioritas program kerja sekolah yang objektif dan transparan. Dapat diakses secara live di rks.dssrks.co.id.",
+      "Website Decision Support System (DSS) untuk membantu perencanaan sekolah yang dibangun dengan database MySQL sesuai kebutuhan lingkup pendidikan. Menggunakan framework Laravel 12, library React.js, dan Tailwind CSS. Mengimplementasikan Two-Factor Authentication (2FA) dengan One-Time Password (OTP) sebagai lapisan keamanan tambahan, Role-Based Access Control (RBAC) untuk mengatur hak akses multi-role (Kepala Sekolah, Tim Pengembang, dan Stakeholder), serta metode Technique for Order Preference by Similarity to Ideal Solution (TOPSIS) untuk perangkingan rekomendasi program kerja sekolah secara objektif. Sistem telah melalui User Acceptance Test (UAT) yang dilakukan langsung oleh 22 Kepala Sekolah Dasar di Kota Semarang, Jawa Tengah, dan disempurnakan sesuai dengan hasil masukan UAT. Dapat diakses secara live di rks.dssrks.co.id.",
     slides: [
       {
         src: "/images/projects/dss-rks/landing-page.jpg",
@@ -235,7 +349,7 @@ export const projectsData: Project[] = [
         src: "/images/projects/dss-rks/uat-deseminasi-user-kepala-sekolah-dan-staf-sd-dan-p3k-kota-semarang.jpg",
         type: "image",
         caption:
-          "Dokumentasi kegiatan UAT (User Acceptance Testing) dan deseminasi implementasi sistem bersama Kepala Sekolah, staf SD, dan P3K Kota Semarang.",
+          "Dokumentasi User Acceptance Test (UAT) dan deseminasi implementasi sistem yang dilakukan langsung bersama 22 Kepala Sekolah Dasar, staf SD, dan P3K Kota Semarang, Jawa Tengah.",
       },
     ],
   },
@@ -244,51 +358,57 @@ export const projectsData: Project[] = [
     title: "Implementasi YOLOv8 dan Embedded System Berbasis ESP32 pada Prototipe Sistem Penargetan Militer Real-Time dengan Integrasi Aktuator Servo.",
     image: "/images/projects/object-targeting.jpg",
     category: "web",
-    tech: ["YOLOv8", "Python", "ESP32", "OpenCV", "Servo Motor", "Roboflow"],
+    tech: ["YOLOv8", "ESP32 Firmware", "Python", "Flask Web App", "Aktuator Servo", "Komunikasi Serial (115200 Baud)", "Roboflow", "Voice Control"],
     description:
-      "Prototipe sistem penargetan objek real-time yang mengintegrasikan model deteksi objek YOLOv8 dengan embedded system berbasis ESP32 dan aktuator servo. Sistem mampu mendeteksi dan mengunci target secara otomatis melalui kamera, lalu menggerakkan servo untuk mengarahkan penargetan.",
+      "Proyek implementasi AI Computer Vision pada prototipe sistem penargetan militer real-time berbasis ESP32 dengan integrasi aktuator servo. Model deteksi objek dikembangkan menggunakan YOLOv8. Hardware prototipe dirancang berbasis mikrokontroler ESP32 yang terhubung dengan kamera, servo motor pan-tilt, dan komponen elektrikal pendukung. Firmware ESP32 dikembangkan untuk mengendalikan pergerakan aktuator servo secara presisi berdasarkan instruksi AI. Komunikasi antara AI dan mikrokontroler menggunakan protokol serial USB/COM pada baud rate 115200 untuk respon kendali real-time. Program Python dibangun sebagai penghubung antara model AI, user interface, dan sistem embedded. Dilengkapi aplikasi web berbasis Flask untuk kendali suara (voice control), pemilihan mode manual/otomatis, pengunggahan model YOLO kustom, serta konfigurasi pengaturan sistem.",
     slides: [
       {
         src: "/images/projects/object-targeting.jpg",
         type: "image",
         caption:
-          "Prototipe hardware sistem penargetan dengan modul ESP32, kamera, dan aktuator servo yang terintegrasi dalam satu rangkaian mekanis.",
+          "Prototipe hardware sistem penargetan militer real-time dengan modul mikrokontroler ESP32, kamera, aktuator servo motor pan-tilt, dan rangkaian elektrikal pendukung.",
+      },
+      {
+        src: "/images/projects/prototipe-sistem-penargetan/diagram-alur-sistem.png",
+        type: "image",
+        caption:
+          "Diagram alur arsitektur sistem: Integrasi model computer vision YOLOv8, penghubung Python, komunikasi serial USB/COM (115200 baud), firmware ESP32, aktuator servo, dan kontrol via web Flask.",
       },
       {
         src: "/images/projects/prototipe-sistem-penargetan/roboflow-plane_dataset.png",
         type: "image",
         caption:
-          "Dataset pesawat yang dianotasi menggunakan Roboflow sebagai data latih model YOLOv8 untuk deteksi objek militer.",
+          "Dataset pesawat yang dianotasi menggunakan Roboflow sebagai data latih model YOLOv8 untuk deteksi target militer.",
       },
       {
         src: "/images/projects/prototipe-sistem-penargetan/tes_result.png",
         type: "image",
         caption:
-          "Hasil pengujian model YOLOv8 — menampilkan bounding box deteksi objek target dengan confidence score pada frame video.",
+          "Hasil pengujian performa model YOLOv8 — menampilkan bounding box deteksi target secara akurat dengan confidence score tinggi.",
       },
       {
         src: "/images/projects/prototipe-sistem-penargetan/user-interface.png",
         type: "image",
         caption:
-          "Antarmuka pengguna sistem penargetan yang menampilkan feed kamera real-time dengan overlay deteksi objek dan status servo.",
+          "Antarmuka aplikasi web Flask untuk kontrol suara (voice control), pengalihan mode manual/otomatis, unggah model YOLO, dan monitor sistem feed kamera.",
       },
       {
         src: "/images/projects/prototipe-sistem-penargetan/test-redball-model.mp4",
         type: "video",
         caption:
-          "Demo pengujian model mendeteksi dan mengunci target bola merah secara real-time dengan pergerakan servo mengikuti posisi objek.",
+          "Demo pengujian model computer vision mendeteksi dan mengunci target bola merah secara real-time dengan pergerakan aktuator servo mengikuti posisi objek.",
       },
       {
         src: "/images/projects/prototipe-sistem-penargetan/test-model_plane.mp4",
         type: "video",
         caption:
-          "Demo pengujian model YOLOv8 mendeteksi objek pesawat dalam kondisi nyata dengan sistem servo yang merespons pergerakan target.",
+          "Demo pengujian model YOLOv8 mendeteksi objek pesawat dalam kondisi nyata dengan respon pergerakan sistem penargetan servo yang presisi.",
       },
       {
         src: "/images/projects/prototipe-sistem-penargetan/trial n error.mp4",
         type: "video",
         caption:
-          "Dokumentasi proses trial & error pengembangan — kalibrasi servo, tuning model deteksi, dan pengujian integrasi sistem secara bertahap.",
+          "Dokumentasi proses trial & error pengembangan sistem: kalibrasi komunikasi serial baud rate 115200, tuning firmware ESP32, dan pengujian stabilitas penargetan.",
       },
     ],
   },

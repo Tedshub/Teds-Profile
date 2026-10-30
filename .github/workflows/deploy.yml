@@ -1,30 +1,61 @@
-name: Deploy Portfolio
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main   # otomatis deploy setiap push ke main
+  workflow_dispatch:  # bisa trigger manual dari tab Actions
+
+# Izin yang dibutuhkan GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Hanya satu deployment berjalan sekaligus, batalkan yang lama jika ada push baru
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
+  # ── Job 1: Build ──────────────────────────────────────────────────────────
   build:
+    name: Build
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        cache: 'npm'
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Run Lint
-      run: npm run lint
+      - name: Build (Vite)
+        run: npm run build
+        # base sudah di-set ke /Teds-Profile/ di vite.config.ts
 
-    - name: Build project
-      run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload dist/ sebagai Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./dist"
+
+  # ── Job 2: Deploy ─────────────────────────────────────────────────────────
+  deploy:
+    name: Deploy
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy ke GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
