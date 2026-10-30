@@ -114,15 +114,63 @@ export const projectsData: Project[] = [
     title: "Group Finances — Platform Pencatatan Keuangan dengan Fitur Komunitas dan Live Group Chat.",
     image: "/images/projects/group-finances.png",
     category: "web",
-    tech: ["React.js", "Laravel", "WebSocket", "MySQL", "Tailwind CSS"],
+    tech: ["Laravel 12", "React.js", "Tailwind CSS", "MySQL", "Live Group Chat", "RBAC", "Finance Tracking"],
     description:
-      "Aplikasi pencatatan keuangan berbasis komunitas yang memungkinkan pengguna mencatat pemasukan & pengeluaran, berbagi laporan dalam grup, serta berkomunikasi real-time melalui fitur live group chat.",
+      "Platform pencatatan keuangan modern berbasis komunitas yang dirancang menggunakan Laravel 12, React.js, Tailwind CSS, dan MySQL. Mengimplementasikan Role-Based Access Control (RBAC) untuk mengelola wewenang pengguna dalam grup (owner & member), sistem interaksi komunitas dengan fitur undang anggota, persetujuan/penolakan keanggotaan, pencatatan transaksi kas bersama, alokasi tabungan serta budgeting, dan komunikasi interaktif real-time melalui fitur live group chat dengan dukungan reaksi emoji dan reply pesan spesifik.",
     slides: [
       {
-        src: "/images/projects/group-finances.png",
+        src: "/images/projects/group-finances/landing-page.jpg",
         type: "image",
         caption:
-          "Halaman utama Group Finances menampilkan ringkasan keuangan kelompok, riwayat transaksi bersama, dan panel live group chat.",
+          "Landing page platform Group Finances — antarmuka penyambutan modern yang memperkenalkan solusi pencatatan finansial terintegrasi, fitur komunitas, dan kolaborasi grup.",
+      },
+      {
+        src: "/images/projects/group-finances/login-register-page.jpg",
+        type: "image",
+        caption:
+          "Halaman autentikasi akun (Login & Registrasi) pengguna yang aman dan responsif, menjadi gerbang masuk ke ekosistem keuangan komunitas.",
+      },
+      {
+        src: "/images/projects/group-finances/dashboard.png",
+        type: "image",
+        caption:
+          "Dashboard analitik keuangan menampilkan ringkasan saldo, grafik arus kas pemasukan dan pengeluaran, serta ringkasan aktivitas grup terkini.",
+      },
+      {
+        src: "/images/projects/group-finances/include-feature-tabungan-penganggaran-pelaporan.png",
+        type: "image",
+        caption:
+          "Fitur perencanaan finansial mencakup manajemen tabungan berjangka, penetapan batas penganggaran (budgeting), serta pelaporan performa keuangan terstruktur.",
+      },
+      {
+        src: "/images/projects/group-finances/fitur-komunitas.jpg",
+        type: "image",
+        caption:
+          "Halaman komunitas/grup dengan implementasi Role-Based Access Control (RBAC) — hak istimewa owner untuk mengundang, menerima/menolak, dan mengeluarkan member, serta menu bergabung/keluar bagi pengguna.",
+      },
+      {
+        src: "/images/projects/group-finances/halaman-transaksi-komunitas.jpg",
+        type: "image",
+        caption:
+          "Pencatatan dan monitoring transaksi bersama dalam grup komunitas, memungkinkan transparansi pembagian beban pengeluaran dan arus kas secara real-time.",
+      },
+      {
+        src: "/images/projects/group-finances/live-group-chat-support-reaction-and-reply-specific-chat.png",
+        type: "image",
+        caption:
+          "Fitur Live Group Chat interaktif yang mendukung komunikasi antar anggota grup secara real-time, dilengkapi reaksi emoji serta opsi reply/balas pesan spesifik.",
+      },
+      {
+        src: "/images/projects/group-finances/halaman-pengaturan-dan-profile.jpg",
+        type: "image",
+        caption:
+          "Halaman pengaturan akun dan profil pengguna untuk kustomisasi informasi pribadi, preferensi notifikasi, dan keamanan sistem.",
+      },
+      {
+        src: "/images/projects/group-finances/responsive-mobile-view.png",
+        type: "image",
+        caption:
+          "Tampilan antarmuka responsif pada perangkat mobile (smartphone/tablet), memastikan navigasi dan pencatatan keuangan tetap nyaman diakses kapan saja.",
       },
     ],
   },

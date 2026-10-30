@@ -30,12 +30,14 @@ export const skillsData: SkillCategory[] = [
     category: "Database & Tools",
     items: [
       { name: "MySQL" },
+      { name: "Jira" },
       { name: "Visual Studio Code" },
-      { name: "Jupyter Notebook" },
-      { name: "Arduino IDE" },
-      { name: "Git" },
+      { name: "Laragon" },
       { name: "Postman" },
+      { name: "Google Colab" },
+      { name: "Arduino IDE" },
       { name: "Roboflow" },
+      { name: "Git" },
     ],
   },
 ];
