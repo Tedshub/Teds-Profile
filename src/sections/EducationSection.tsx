@@ -12,6 +12,7 @@ import {
   ZoomIn,
   ExternalLink,
 } from 'lucide-react';
+import { getImageUrl } from '../utils/assets';
 
 interface PreviewState {
   isOpen: boolean;
@@ -29,7 +30,7 @@ export const EducationSection: React.FC = () => {
   const handleOpenPreview = (imageUrl: string, title: string) => {
     setPreview({
       isOpen: true,
-      imageUrl,
+      imageUrl: getImageUrl(imageUrl), // resolve BASE_URL di sini
       title,
     });
   };
@@ -122,7 +123,7 @@ export const EducationSection: React.FC = () => {
                   }}
                 >
                   <img
-                    src={encodeURI(edu.image)}
+                    src={getImageUrl(edu.image)}
                     alt={`${edu.degree} - ${edu.institution}`}
                     loading="lazy"
                     className="edu-img"
@@ -387,7 +388,7 @@ export const EducationSection: React.FC = () => {
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <a
-                    href={encodeURI(preview.imageUrl)}
+                    href={preview.imageUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Buka foto di tab baru"
@@ -455,7 +456,7 @@ export const EducationSection: React.FC = () => {
                 }}
               >
                 <img
-                  src={encodeURI(preview.imageUrl)}
+                  src={preview.imageUrl}
                   alt={preview.title}
                   style={{
                     maxWidth: '100%',

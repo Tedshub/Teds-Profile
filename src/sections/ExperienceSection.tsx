@@ -4,6 +4,7 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { ExperienceCard } from '../components/common/ExperienceCard';
 import { experiencesData } from '../data/experiences';
 import { X, ExternalLink, ZoomIn } from 'lucide-react';
+import { getImageUrl } from '../utils/assets';
 
 interface PreviewState {
   isOpen: boolean;
@@ -21,7 +22,7 @@ export const ExperienceSection: React.FC = () => {
   const handleOpenPreview = (imageUrl: string, title: string) => {
     setPreview({
       isOpen: true,
-      imageUrl,
+      imageUrl: getImageUrl(imageUrl),
       title,
     });
   };
@@ -135,7 +136,7 @@ export const ExperienceSection: React.FC = () => {
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <a
-                    href={encodeURI(preview.imageUrl)}
+                    href={preview.imageUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Buka gambar ukuran penuh di tab baru"
@@ -203,7 +204,7 @@ export const ExperienceSection: React.FC = () => {
                 }}
               >
                 <img
-                  src={encodeURI(preview.imageUrl)}
+                  src={preview.imageUrl}
                   alt={preview.title}
                   style={{
                     maxWidth: '100%',

@@ -36,7 +36,7 @@ export const experiencesData: Experience[] = [
       "Membangun antarmuka manajemen bisnis yang interaktif dan responsif menggunakan React.js.",
     ],
     technologies: ["Laravel", "React.js", "PHP", "RESTful API", "MySQL", "Back-End Web Development"],
-    certificates: [
+    certificates: [ 
       {
         title: "Sertifikat Magang Campus Digital Indonesia (PDF)",
         url: "/documents/Setifikat Kompetensi Junior Web Developer.pdf",

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Experience } from '../../types/experience';
 import { Calendar, MapPin, Building2, FileText, ExternalLink, Maximize2 } from 'lucide-react';
+import { getImageUrl } from '../../utils/assets';
 
 interface ExperienceCardProps {
   experience: Experience;
@@ -14,11 +15,11 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
   onPreviewImage,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const safeImageUrl = experience.image ? encodeURI(experience.image) : '';
+  const safeImageUrl = experience.image ? getImageUrl(experience.image) : '';
 
   const handleImageClick = () => {
     if (onPreviewImage && experience.image) {
-      onPreviewImage(experience.image, `${experience.role} — ${experience.company}`);
+      onPreviewImage(safeImageUrl, `${experience.role} — ${experience.company}`);
     }
   };
 
@@ -271,7 +272,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
               {experience.certificates.map((cert) => (
                 <a
                   key={cert.url}
-                  href={encodeURI(cert.url)}
+                  href={getImageUrl(cert.url)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="exp-cert-link"
