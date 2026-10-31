@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, ChevronRight, Menu } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
+import { useModalBackHandler } from '../../hooks/useModalBackHandler';
 import { projectsData } from '../../data/projects';
 import { experiencesData } from '../../data/experiences';
 import { certificatesData } from '../../data/certificates';
@@ -30,6 +31,9 @@ export const Navbar: React.FC = () => {
     navItems.map((i) => i.href.substring(1)),
     100
   );
+
+  // Dukungan tombol Back perangkat / browser mobile untuk menutup mobile drawer
+  useModalBackHandler(isMobileMenuOpen, () => setIsMobileMenuOpen(false));
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);

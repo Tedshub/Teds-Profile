@@ -13,6 +13,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { getImageUrl } from '../utils/assets';
+import { useModalBackHandler } from '../hooks/useModalBackHandler';
 
 interface PreviewState {
   isOpen: boolean;
@@ -38,6 +39,9 @@ export const EducationSection: React.FC = () => {
   const handleClosePreview = () => {
     setPreview((prev) => ({ ...prev, isOpen: false }));
   };
+
+  // Dukungan tombol Back perangkat / browser mobile untuk menutup preview foto
+  useModalBackHandler(preview.isOpen, handleClosePreview);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

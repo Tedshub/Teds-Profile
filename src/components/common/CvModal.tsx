@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { X, Code2, Cpu, ExternalLink } from 'lucide-react';
+import { X, Code2, Cpu, ExternalLink, FileText } from 'lucide-react';
 import { getImageUrl } from '../../utils/assets';
+import { useModalBackHandler } from '../../hooks/useModalBackHandler';
 
 interface CvModalProps {
   isOpen: boolean;
@@ -8,6 +9,9 @@ interface CvModalProps {
 }
 
 export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
+  // Dukungan tombol Back perangkat / browser mobile untuk menutup modal
+  useModalBackHandler(isOpen, onClose);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -37,10 +41,10 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '1.25rem',
+        padding: '1rem',
         backgroundColor: 'rgba(0, 0, 0, 0.65)',
         backdropFilter: 'blur(6px)',
-        animation: 'fadeIn 0.2s ease-out',
+        animation: 'cvFadeIn 0.2s ease-out',
       }}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -49,14 +53,14 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
       <div
         style={{
           width: '100%',
-          maxWidth: '580px',
+          maxWidth: '440px',
           backgroundColor: '#ffffff',
           borderRadius: '16px',
           border: '1px solid var(--border)',
-          boxShadow: '0 24px 48px rgba(0, 0, 0, 0.2), 0 0 24px rgba(255, 184, 0, 0.15)',
-          padding: '2rem',
+          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.18), 0 0 20px rgba(255, 184, 0, 0.12)',
+          padding: '1.5rem',
           position: 'relative',
-          animation: 'fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+          animation: 'cvSlideUp 0.22s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -66,8 +70,8 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
           aria-label="Tutup Modal"
           style={{
             position: 'absolute',
-            top: '1.25rem',
-            right: '1.25rem',
+            top: '1rem',
+            right: '1rem',
             border: 'none',
             background: 'transparent',
             width: '32px',
@@ -89,58 +93,71 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
             e.currentTarget.style.color = 'var(--text-muted)';
           }}
         >
-          <X size={20} />
+          <X size={18} />
         </button>
 
-        {/* Header */}
-        <div style={{ marginBottom: '1.75rem', paddingRight: '2rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.4rem' }}>
+        {/* Compact Header */}
+        <div style={{ marginBottom: '1.25rem', paddingRight: '2rem' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
             <span
               style={{
-                width: '7px',
-                height: '7px',
+                width: '6px',
+                height: '6px',
                 borderRadius: '50%',
                 backgroundColor: 'var(--yellow-primary)',
                 display: 'inline-block',
               }}
             />
-            <span className="label" style={{ color: 'var(--text-muted)' }}>
-              Kurikulum Vitae
+            <span
+              className="label"
+              style={{
+                color: 'var(--text-muted)',
+                fontSize: '0.72rem',
+                letterSpacing: '0.04em',
+                fontWeight: 700,
+              }}
+            >
+              Curriculum Vitae
             </span>
           </div>
-          <h2 className="heading-1" style={{ fontSize: '1.45rem', marginBottom: '0.35rem' }}>
-            Pilih Format Curriculum Vitae
+          <h2
+            className="heading-1"
+            style={{ fontSize: '1.2rem', lineHeight: 1.3, marginBottom: '0.25rem', color: '#0a0a0a' }}
+          >
+            Pilih Format CV
           </h2>
-          <p className="body" style={{ fontSize: '0.88rem' }}>
-            Silakan pilih versi CV yang sesuai dengan fokus spesialisasi yang Anda butuhkan:
+          <p className="body" style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', margin: 0 }}>
+            Pilih versi spesialisasi kurikulum vitae yang diinginkan:
           </p>
         </div>
 
-        {/* CV Options Grid */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        {/* Compact CV Options List */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {/* Option 1: Web Developer */}
           <a
             href={getImageUrl('/documents/CV Web Developer.pdf')}
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
+            className="cv-card-item"
             style={{
               display: 'flex',
-              alignItems: 'flex-start',
-              gap: '1.15rem',
-              padding: '1.25rem',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '0.85rem',
+              padding: '0.9rem 1rem',
               borderRadius: '12px',
               border: '1.5px solid var(--border)',
               backgroundColor: '#ffffff',
               textDecoration: 'none',
-              transition: 'all 0.22s cubic-bezier(0.16, 1, 0.3, 1)',
+              transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
               cursor: 'pointer',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = 'var(--yellow-primary)';
               e.currentTarget.style.backgroundColor = 'var(--yellow-subtle)';
               e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 8px 20px rgba(255, 184, 0, 0.16)';
+              e.currentTarget.style.boxShadow = '0 6px 16px rgba(255, 184, 0, 0.16)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.borderColor = 'var(--border)';
@@ -149,46 +166,50 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
               e.currentTarget.style.boxShadow = 'none';
             }}
           >
-            <div
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+              <div
+                style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '9px',
+                  backgroundColor: '#0a0a0a',
+                  color: '#ffffff',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                }}
+              >
+                <Code2 size={19} style={{ color: 'var(--yellow-primary)' }} />
+              </div>
+
+              <div>
+                <h3 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0a0a0a', margin: '0 0 0.15rem 0' }}>
+                  CV Web Developer & Computer Vision
+                </h3>
+              </div>
+            </div>
+
+            <span
               style={{
-                width: '44px',
-                height: '44px',
-                borderRadius: '10px',
-                backgroundColor: '#000000',
-                color: '#ffffff',
-                display: 'flex',
+                display: 'inline-flex',
                 alignItems: 'center',
-                justifyContent: 'center',
+                gap: '0.3rem',
+                fontSize: '0.72rem',
+                fontWeight: 700,
+                color: '#805b00',
+                backgroundColor: 'rgba(255, 184, 0, 0.18)',
+                border: '1px solid var(--yellow-border)',
+                padding: '0.3rem 0.6rem',
+                borderRadius: '6px',
+                whiteSpace: 'nowrap',
                 flexShrink: 0,
               }}
             >
-              <Code2 size={22} style={{ color: 'var(--yellow-primary)' }} />
-            </div>
-
-            <div style={{ flex: 1 }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#000000' }}>
-                  CV Web Developer
-                </h3>
-                <ExternalLink size={15} style={{ color: 'var(--text-muted)' }} />
-              </div>
-              <p style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '0.5rem' }}>
-                Fokus pada Full Stack Web Development (Laravel, React.js, REST API, Database SQL & Web Architecture).
-              </p>
-              <span
-                style={{
-                  display: 'inline-block',
-                  fontSize: '0.74rem',
-                  fontWeight: 700,
-                  color: '#805b00',
-                  backgroundColor: 'rgba(255, 184, 0, 0.15)',
-                  padding: '0.15rem 0.5rem',
-                  borderRadius: '4px',
-                }}
-              >
-                Buka File PDF • Web Developer
-              </span>
-            </div>
+              <FileText size={12} />
+              Buka PDF
+              <ExternalLink size={11} style={{ opacity: 0.8 }} />
+            </span>
           </a>
 
           {/* Option 2: IoT */}
@@ -197,23 +218,25 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
+            className="cv-card-item"
             style={{
               display: 'flex',
-              alignItems: 'flex-start',
-              gap: '1.15rem',
-              padding: '1.25rem',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '0.85rem',
+              padding: '0.9rem 1rem',
               borderRadius: '12px',
               border: '1.5px solid var(--border)',
               backgroundColor: '#ffffff',
               textDecoration: 'none',
-              transition: 'all 0.22s cubic-bezier(0.16, 1, 0.3, 1)',
+              transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
               cursor: 'pointer',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = 'var(--yellow-primary)';
               e.currentTarget.style.backgroundColor = 'var(--yellow-subtle)';
               e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 8px 20px rgba(255, 184, 0, 0.16)';
+              e.currentTarget.style.boxShadow = '0 6px 16px rgba(255, 184, 0, 0.16)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.borderColor = 'var(--border)';
@@ -222,49 +245,64 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
               e.currentTarget.style.boxShadow = 'none';
             }}
           >
-            <div
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+              <div
+                style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '9px',
+                  backgroundColor: '#0a0a0a',
+                  color: '#ffffff',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                }}
+              >
+                <Cpu size={19} style={{ color: 'var(--yellow-primary)' }} />
+              </div>
+
+              <div>
+                <h3 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0a0a0a', margin: '0 0 0.15rem 0' }}>
+                  CV IoT & Computer Vison
+                </h3>
+              </div>
+            </div>
+
+            <span
               style={{
-                width: '44px',
-                height: '44px',
-                borderRadius: '10px',
-                backgroundColor: '#000000',
-                color: '#ffffff',
-                display: 'flex',
+                display: 'inline-flex',
                 alignItems: 'center',
-                justifyContent: 'center',
+                gap: '0.3rem',
+                fontSize: '0.72rem',
+                fontWeight: 700,
+                color: '#805b00',
+                backgroundColor: 'rgba(255, 184, 0, 0.18)',
+                border: '1px solid var(--yellow-border)',
+                padding: '0.3rem 0.6rem',
+                borderRadius: '6px',
+                whiteSpace: 'nowrap',
                 flexShrink: 0,
               }}
             >
-              <Cpu size={22} style={{ color: 'var(--yellow-primary)' }} />
-            </div>
-
-            <div style={{ flex: 1 }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#000000' }}>
-                  CV IoT & Embedded Systems
-                </h3>
-                <ExternalLink size={15} style={{ color: 'var(--text-muted)' }} />
-              </div>
-              <p style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '0.5rem' }}>
-                Fokus pada Embedded Systems, ESP32, Sensor & Modbus RTU, Python, dan Computer Vision (OpenCV / YOLO).
-              </p>
-              <span
-                style={{
-                  display: 'inline-block',
-                  fontSize: '0.74rem',
-                  fontWeight: 700,
-                  color: '#805b00',
-                  backgroundColor: 'rgba(255, 184, 0, 0.15)',
-                  padding: '0.15rem 0.5rem',
-                  borderRadius: '4px',
-                }}
-              >
-                Buka File PDF • IoT Engineer
-              </span>
-            </div>
+              <FileText size={12} />
+              Buka PDF
+              <ExternalLink size={11} style={{ opacity: 0.8 }} />
+            </span>
           </a>
         </div>
       </div>
+
+      <style>{`
+        @keyframes cvFadeIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        @keyframes cvSlideUp {
+          from { opacity: 0; transform: translateY(12px) scale(0.97); }
+          to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+      `}</style>
     </div>
   );
 };

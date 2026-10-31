@@ -35,18 +35,21 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-      {links.map((link) => (
-        <a
-          key={link.platform}
-          href={link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={link.platform}
-          className="icon-btn"
-        >
-          {getIcon(link.iconName)}
-        </a>
-      ))}
+      {links.map((link) => {
+        const isMailto = link.url.startsWith('mailto:');
+        return (
+          <a
+            key={link.platform}
+            href={link.url}
+            target={isMailto ? undefined : '_blank'}
+            rel={isMailto ? undefined : 'noopener noreferrer'}
+            aria-label={link.platform}
+            className="icon-btn"
+          >
+            {getIcon(link.iconName)}
+          </a>
+        );
+      })}
     </div>
   );
 };

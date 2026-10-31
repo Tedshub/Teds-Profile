@@ -5,6 +5,7 @@ import { ExperienceCard } from '../components/common/ExperienceCard';
 import { experiencesData } from '../data/experiences';
 import { X, ExternalLink, ZoomIn } from 'lucide-react';
 import { getImageUrl } from '../utils/assets';
+import { useModalBackHandler } from '../hooks/useModalBackHandler';
 
 interface PreviewState {
   isOpen: boolean;
@@ -30,6 +31,9 @@ export const ExperienceSection: React.FC = () => {
   const handleClosePreview = () => {
     setPreview((prev) => ({ ...prev, isOpen: false }));
   };
+
+  // Dukungan tombol Back perangkat / browser mobile untuk menutup preview gambar
+  useModalBackHandler(preview.isOpen, handleClosePreview);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

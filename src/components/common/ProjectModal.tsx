@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Project } from '../../types/project';
 import { getImageUrl } from '../../utils/assets';
+import { useModalBackHandler } from '../../hooks/useModalBackHandler';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -36,6 +37,9 @@ const GithubIcon: React.FC = () => (
 );
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+  // Dukungan tombol Back perangkat / browser mobile untuk menutup modal
+  useModalBackHandler(Boolean(project), onClose);
+
   const [activeIdx, setActiveIdx] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
