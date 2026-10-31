@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, Code2, Cpu, ExternalLink, FileText } from 'lucide-react';
+import { X, Code2, Cpu, ExternalLink } from 'lucide-react';
 import { getImageUrl } from '../../utils/assets';
 import { useModalBackHandler } from '../../hooks/useModalBackHandler';
 
@@ -194,21 +194,17 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.3rem',
-                fontSize: '0.72rem',
-                fontWeight: 700,
+                justifyContent: 'center',
+                width: '30px',
+                height: '30px',
+                borderRadius: '6px',
                 color: '#805b00',
                 backgroundColor: 'rgba(255, 184, 0, 0.18)',
                 border: '1px solid var(--yellow-border)',
-                padding: '0.3rem 0.6rem',
-                borderRadius: '6px',
-                whiteSpace: 'nowrap',
                 flexShrink: 0,
               }}
             >
-              <FileText size={12} />
-              Buka PDF
-              <ExternalLink size={11} style={{ opacity: 0.8 }} />
+              <ExternalLink size={13} style={{ opacity: 0.85 }} />
             </span>
           </a>
 
@@ -273,21 +269,17 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.3rem',
-                fontSize: '0.72rem',
-                fontWeight: 700,
+                justifyContent: 'center',
+                width: '30px',
+                height: '30px',
+                borderRadius: '6px',
                 color: '#805b00',
                 backgroundColor: 'rgba(255, 184, 0, 0.18)',
                 border: '1px solid var(--yellow-border)',
-                padding: '0.3rem 0.6rem',
-                borderRadius: '6px',
-                whiteSpace: 'nowrap',
                 flexShrink: 0,
               }}
             >
-              <FileText size={12} />
-              Buka PDF
-              <ExternalLink size={11} style={{ opacity: 0.8 }} />
+              <ExternalLink size={13} style={{ opacity: 0.85 }} />
             </span>
           </a>
         </div>
