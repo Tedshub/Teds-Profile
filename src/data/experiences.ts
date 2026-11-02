@@ -3,7 +3,7 @@ import { Experience } from '../types/experience';
 export const experiencesData: Experience[] = [
   {
     id: "teaching-assistant",
-    role: "Teaching Assistant",
+    role: "Teaching Assistant - IoT & Data Science",
     company: "Universitas PGRI Semarang",
     period: "Jun 2025 - Jul 2026",
     location: "Semarang, Jawa Tengah, Indonesia",
